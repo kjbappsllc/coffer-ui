@@ -3,7 +3,7 @@ import { Subject, ReplaySubject } from 'rxjs'
 import { filter, map } from 'rxjs/operators'
 
 import { createRx } from './rx'
-import { createStateManager } from './state'
+import { createStateManager } from './state-management'
 
 
 export const createSubject = createRx({ Subject, ReplaySubject, filter, map })

@@ -1,12 +1,12 @@
 var path = require('path');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var CleanWebpackPlugin = require('clean-webpack-plugin')
+var { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-    entry: ['@babel/polyfill', './src/external-interfaces/web-ui/index.js'],
+    entry: ['@babel/polyfill', './src/ui/index.js'],
     output: {
-        path: path.resolve(__dirname, './build/web-build/'),
+        path: path.resolve(__dirname, './dist'),
         filename: 'bundle.js'
     },
     module: {
@@ -38,10 +38,10 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: path.resolve(__dirname, './src/external-interfaces/web-ui/index.html'),
+            template: path.resolve(__dirname, './public/index.html'),
             title: "Coffer: Budget Application"
         }),
-        new CleanWebpackPlugin('./build/web-build', {}),
+        new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: 'main.css'
         })

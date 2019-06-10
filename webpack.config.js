@@ -6,7 +6,7 @@ var { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
     entry: ['@babel/polyfill', './src/ui/index.js'],
     devServer: {
-        port: 3000,
+        port: 8080,
         historyApiFallback: true
     },
     output: {

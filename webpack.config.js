@@ -5,6 +5,10 @@ var { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     entry: ['@babel/polyfill', './src/ui/index.js'],
+    devServer: {
+        port: 3000,
+        historyApiFallback: true
+    },
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'bundle.js'
@@ -21,7 +25,7 @@ module.exports = {
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    process.env.ENV === "prod" ? MiniCssExtractPlugin.loader : 'style-loader',
                     'css-loader',
                     'postcss-loader',
                     'sass-loader',
